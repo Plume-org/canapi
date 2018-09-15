@@ -1,0 +1,7 @@
+[package]
+name = "canapi"
+version = "0.1.0"
+authors = ["Bat' <baptiste@gelez.xyz>"]
+
+[dependencies]
+serde = "1.0"
