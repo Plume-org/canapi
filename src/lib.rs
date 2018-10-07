@@ -1,13 +1,22 @@
+#![feature(try_trait)]
+
 extern crate serde;
 
 use serde::{Serialize, de::DeserializeOwned};
 use std::fmt::Display;
+use std::option::NoneError;
 
 pub enum Error {
     Fetch(String),
     SerDe(String),
     NotFound(String),
     Authorization(String),
+}
+
+impl From<NoneError> for Error {
+    fn from(_: NoneError) -> Error {
+        Error::NotFound(String::from("Expected a value, found None"))
+    }
 }
 
 /// API to DB link
