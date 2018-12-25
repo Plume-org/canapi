@@ -6,6 +6,7 @@ use serde::{de::DeserializeOwned, Serialize};
 use std::fmt::Display;
 use std::option::NoneError;
 
+#[derive(Debug,Clone)]
 pub enum Error {
     Fetch(String),
     SerDe(String),
